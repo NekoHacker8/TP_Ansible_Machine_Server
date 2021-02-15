@@ -1,5 +1,5 @@
 ---
-- name: Installation App Serveur/Client
+- name: Installation
   hosts: MachineCible
   become_method: sudo
   become: true
@@ -14,7 +14,7 @@
   #Apache Configuration
     - name: Install LAMP Packages
       apt: name={{ item }} update_cache=yes state=latest
-      loop: [ 'apache2', 'mysql-server', 'python3-pymysql', 'php', 'php-mysql', 'libapache2-mod-php' ]
+      loop: [ 'apache2', 'mysql-server', 'python3-pymysql', 'php', 'php-mysql', 'libapache2-mod-php', 'python-mysqldb' ]
 
     - name: Create document root
       file:
